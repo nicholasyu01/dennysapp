@@ -11,6 +11,8 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
+import Alert from '@mui/material/Alert';
+import CircularProgress from '@mui/material/CircularProgress';
 
 const financialsColumns = [
     "Date",
@@ -23,8 +25,8 @@ const financialsColumns = [
     "Asset Manager Shorts",
     "Asset Differnece",
     // "Asset Manager Spreads",
-    "Leveraged Funds Longs",
-    "Leveraged Funds Shorts",
+    "Leveraged Longs",
+    "Leveraged Shorts",
     "Leveraged Difference",
     // "Leveraged Funds Spreads",
     "Other Reportable Longs",
@@ -38,11 +40,11 @@ const financialsColumns = [
 ]
 
 function FinancialsTable(props) {
-    const { name, type, columns, data } = props;
+    const { name, type, columns, data, errorState, loading } = props;
 
     return (
         <>
-            <Paper style={{ width: '100%' }}>
+            <Paper style={{ margin: '20px' }}>
                 <Typography variant='h5'>
                     {name} - {type}
                 </Typography>
@@ -72,21 +74,21 @@ function FinancialsTable(props) {
                                                 {row[0]}
                                             </TableCell>
                                             {/* <TableCell align="right">{row[1]}</TableCell> */}
-                                            <TableCell align="left">{row[2].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</TableCell>
-                                            <TableCell align="left">{row[3].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</TableCell>
+                                            <TableCell align="left">{row[2]?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</TableCell>
+                                            <TableCell align="left">{row[3]?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</TableCell>
                                             <TableCell align="left">{(Number(row[2] - row[3]).toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</TableCell>
 
-                                            <TableCell align="left">{row[5].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</TableCell>
-                                            <TableCell align="left">{row[6].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</TableCell>
-                                            <TableCell align="left">{(Number(row[5] - row[6]).toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</TableCell>
+                                            <TableCell align="left">{row[5]?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</TableCell>
+                                            <TableCell align="left">{row[6]?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</TableCell>
+                                            <TableCell align="left">{(Number(row[5] - row[6])?.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</TableCell>
                                             {/* <TableCell align="right">{row[6]}</TableCell> */}
-                                            <TableCell align="left">{row[8].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</TableCell>
-                                            <TableCell align="left">{row[9].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</TableCell>
-                                            <TableCell align="left">{(Number(row[8] - row[9]).toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</TableCell>
+                                            <TableCell align="left">{row[8]?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</TableCell>
+                                            <TableCell align="left">{row[9]?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</TableCell>
+                                            <TableCell align="left">{(Number(row[8] - row[9])?.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</TableCell>
                                             {/* <TableCell align="right">{row[9]}</TableCell> */}
-                                            <TableCell align="left">{row[11].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</TableCell>
+                                            <TableCell align="left">{row[11]?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</TableCell>
                                             <TableCell align="left">{row[12]?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</TableCell>
-                                            <TableCell align="left">{(Number(row[11] - row[12]).toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</TableCell>
+                                            <TableCell align="left">{(Number(row[11] - row[12])?.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</TableCell>
                                             {/* <TableCell align="right">{row[12]}</TableCell> */}
                                             {/* <TableCell align="right">{row[13]}</TableCell>
                                             <TableCell align="right">{row[14]}</TableCell>
@@ -99,6 +101,20 @@ function FinancialsTable(props) {
                         </TableBody>
                     </Table>
                 </TableContainer>
+                {
+                    errorState ? (
+                        <Alert severity="warning">Error Occured. Please Try Again</Alert>
+                    ) : (
+                        ""
+                    )
+                }
+                {
+                    loading ? (
+                        <CircularProgress />
+                    ) : (
+                        ""
+                    )
+                }
             </Paper>
         </>
     );
