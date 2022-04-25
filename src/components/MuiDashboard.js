@@ -76,7 +76,7 @@ function MuiDashboard() {
 
 
     const handleIndustryChange = (e, val) => {
-        setIndustryInput(val);
+        setIndustryInput(val.label);
         if (val.label === 'METALS AND OTHERS') {
             setCommodityOptions(
                 [
@@ -150,7 +150,7 @@ function MuiDashboard() {
                     </ListItemButton>
                 </List> */}
             </Box>
-            <Metals commodityOptions={commodityOptions} />
+            <Metals commodityOptions={commodityOptions} industryInput={industryInput} />
         </>
     );
 }

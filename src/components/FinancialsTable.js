@@ -12,44 +12,51 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
 
+const financialsColumns = [
+    "Date",
+    // "Open Interest",
+    "Dealer Longs",
+    "Dealer Shorts",
+    "Dealer Differnece",
+    // "Dealer Spreads", // offsets from metals therefore columns not compatable
+    "Asset Manager Longs",
+    "Asset Manager Shorts",
+    "Asset Differnece",
+    // "Asset Manager Spreads",
+    "Leveraged Funds Longs",
+    "Leveraged Funds Shorts",
+    "Leveraged Difference",
+    // "Leveraged Funds Spreads",
+    "Other Reportable Longs",
+    "Other Reportable Shorts",
+    "Other Differnece",
+    // "Other Reportable Spreads",
+    // "Total Reportable Longs",
+    // "Total Reportable Shorts",
+    // "Non Reportable Longs",
+    // "Non Reportable Shorts"
+]
 
-function MetalsTable(props) {
-    const { metalName, metalType, columns, data } = props;
-
+function FinancialsTable(props) {
+    const { name, type, columns, data } = props;
 
     return (
         <>
             <Paper style={{ width: '100%' }}>
                 <Typography variant='h5'>
-                    {metalName} - {metalType}
+                    {name} - {type}
                 </Typography>
                 <TableContainer component={Paper}>
                     <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
                         <TableHead>
                             <TableRow>
                                 {
-                                    columns?.map((col) => {
+                                    financialsColumns?.map((col) => {
                                         return (
                                             <TableCell>{col}</TableCell>
                                         )
                                     })
                                 }
-                                {/* <TableCell>Date</TableCell>
-                                <TableCell align="right">Total Traders</TableCell>
-                                <TableCell align="right">Producer/Merchant/Processor/User Longs</TableCell>
-                                <TableCell align="right">Producer/Merchant/Processor/User Shorts</TableCell>
-                                <TableCell align="right">Swap Dealer Longs</TableCell>
-                                <TableCell align="right">Swap Dealer Shorts</TableCell>
-                                <TableCell align="right">Swap Dealer Spreads</TableCell>
-                                <TableCell align="right">Money Manager Longs</TableCell>
-                                <TableCell align="right">Money Manager Shorts</TableCell>
-                                <TableCell align="right">Money Manager Spreads</TableCell>
-                                <TableCell align="right">Other Reportable Longs</TableCell>
-                                <TableCell align="right">Other Reportable Shorts</TableCell>
-                                <TableCell align="right">Other Reportable Spreads</TableCell>
-                                <TableCell align="right">Total Reportable Longs</TableCell>
-                                <TableCell align="right">Total Reportable Shorts</TableCell> */}
-
                             </TableRow>
                         </TableHead>
                         <TableBody>
@@ -69,17 +76,17 @@ function MetalsTable(props) {
                                             <TableCell align="left">{row[3].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</TableCell>
                                             <TableCell align="left">{(Number(row[2] - row[3]).toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</TableCell>
 
-                                            <TableCell align="left">{row[4].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</TableCell>
                                             <TableCell align="left">{row[5].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</TableCell>
-                                            <TableCell align="left">{(Number(row[4] - row[5]).toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</TableCell>
+                                            <TableCell align="left">{row[6].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</TableCell>
+                                            <TableCell align="left">{(Number(row[5] - row[6]).toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</TableCell>
                                             {/* <TableCell align="right">{row[6]}</TableCell> */}
-                                            <TableCell align="left">{row[7].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</TableCell>
                                             <TableCell align="left">{row[8].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</TableCell>
-                                            <TableCell align="left">{(Number(row[7] - row[8]).toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</TableCell>
+                                            <TableCell align="left">{row[9].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</TableCell>
+                                            <TableCell align="left">{(Number(row[8] - row[9]).toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</TableCell>
                                             {/* <TableCell align="right">{row[9]}</TableCell> */}
-                                            <TableCell align="left">{row[10].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</TableCell>
                                             <TableCell align="left">{row[11].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</TableCell>
-                                            <TableCell align="left">{(Number(row[10] - row[11]).toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</TableCell>
+                                            <TableCell align="left">{row[12]?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</TableCell>
+                                            <TableCell align="left">{(Number(row[11] - row[12]).toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</TableCell>
                                             {/* <TableCell align="right">{row[12]}</TableCell> */}
                                             {/* <TableCell align="right">{row[13]}</TableCell>
                                             <TableCell align="right">{row[14]}</TableCell>
@@ -97,4 +104,4 @@ function MetalsTable(props) {
     );
 }
 
-export default MetalsTable;
+export default FinancialsTable;

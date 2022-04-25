@@ -16,6 +16,7 @@ import MetalsChanges from './MetalsChanges';
 import MetalsPercentOI from './MetalsPercentOI';
 import MetalsNumTrades from './MetalsNumTrades';
 import MetalsTable from './MetalsTable.js';
+import FinancialsTable from './FinancialsTable';
 
 const column_names = [
     "Date",
@@ -41,9 +42,8 @@ const column_names = [
     // "Non Reportable Shorts"
 ]
 
-
 function Metals(props) {
-    const { commodityOptions } = props;
+    const { commodityOptions, industryInput } = props;
     const [positionsData, setPositionsData] = useState();
     const [changesData, setChangesData] = useState();
     const [percentOIData, setPercentOIData] = useState();
@@ -84,6 +84,9 @@ function Metals(props) {
                 console.log(err)
             });
 
+        setTimeout(function () {
+            //your code to be executed after 1 second
+        }, 1000);
         // get changes data
         axios.get(
             `https://data.nasdaq.com/api/v3/datasets/CFTC/${commodityInput.comId}_FO_CHG/data.json?start_date=${startDate}&end_date=${endDate}&api_key=G7XE3KtbFRSk-jPHsBYi`
@@ -94,6 +97,9 @@ function Metals(props) {
             .catch(err => {
                 console.log(err)
             });
+        setTimeout(function () {
+            //your code to be executed after 1 second
+        }, 1000);
 
         // get percent of interest data
         axios.get(
@@ -105,6 +111,9 @@ function Metals(props) {
             .catch(err => {
                 console.log(err)
             });
+        setTimeout(function () {
+            //your code to be executed after 1 second
+        }, 1000);
 
         // get number of traders data
         axios.get(
@@ -157,10 +166,8 @@ function Metals(props) {
                     <Button disabled={!commodityInput} type="submit" variant="contained">Submit</Button>
 
                 </form>
-
-
                 {
-                    positionsData ? (
+                    industryInput === 'METALS AND OTHERS' && positionsData ? (
                         <>
                             <MetalsTable metalName={commodityInput.label} metalType={'Positions'} columns={column_names} data={positionsData} />
                             <MetalsTable metalName={commodityInput.label} metalType={'Changes'} columns={column_names} data={changesData} />
@@ -171,6 +178,20 @@ function Metals(props) {
                         ''
                     )
                 }
+
+                {
+                    industryInput === 'FINANCIALS' && positionsData ? (
+                        <>
+                            <FinancialsTable name={commodityInput.label} type={'Positions'} columns={column_names} data={positionsData} />
+                            <FinancialsTable name={commodityInput.label} type={'Changes'} columns={column_names} data={changesData} />
+                            <FinancialsTable name={commodityInput.label} type={'Percent of Open Interest'} columns={column_names} data={percentOIData} />
+                            <FinancialsTable name={commodityInput.label} type={'Number Of Traders'} columns={column_names} data={numOfTradersData} />
+                        </>
+                    ) : (
+                        ''
+                    )
+                }
+
 
                 {/* <MetalsPositions />
                 <MetalsChanges />
