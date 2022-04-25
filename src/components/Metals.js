@@ -11,10 +11,6 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 
-import MetalsPositions from './MetalsPositions';
-import MetalsChanges from './MetalsChanges';
-import MetalsPercentOI from './MetalsPercentOI';
-import MetalsNumTrades from './MetalsNumTrades';
 import MetalsTable from './MetalsTable.js';
 import FinancialsTable from './FinancialsTable';
 
