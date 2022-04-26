@@ -142,7 +142,7 @@ function QueryForm() {
                     console.log(err)
                 });
             setLoading(false)
-        }, 3000);
+        }, 2000);
 
 
     }
@@ -158,28 +158,55 @@ function QueryForm() {
             setCommodityOptions(
                 [
                     {
-                        id: 1, label: 'GOLD', comId: '088691', oldDate: '2006-06-13', newDate: 'Today', name: "Commitment of Traders - GOLD (CMX) - Futures and Options (088691)",
-                        description: "Commitment of Traders - GOLD (CMX) - Futures and Options<br><br>Contract Market Code: 088691<br><br>Units: CONTRACTS OF 100 TROY OUNCES",
+                        id: 1, label: 'GOLD 088691', comId: '088691', oldDate: '2006-06-13', newDate: endDate, name: "Commitment of Traders - GOLD (CMX) - Futures and Options (088691)",
+                        description: "Commitment of Traders - GOLD (CMX) - Futures and Options Contract Market Code: 088691 Units: CONTRACTS OF 100 TROY OUNCES",
                     },
                     {
-                        id: 2, label: 'SILVER', comId: '084691', oldDate: '2006-06-13', newDate: 'Today', name: "Commitment of Traders - SILVER (CMX) - Futures and Options (084691)",
-                        description: "Commitment of Traders - SILVER (CMX) - Futures and Options<br><br>Contract Market Code: 084691<br><br>Units: CONTRACTS OF 5,000 TROY OUNCES",
+                        id: 2, label: 'SILVER 084691', comId: '084691', oldDate: '2006-06-13', newDate: endDate, name: "Commitment of Traders - SILVER (CMX) - Futures and Options (084691)",
+                        description: "Commitment of Traders - SILVER (CMX) - Futures and Options Contract Market Code: 084691 Units: CONTRACTS OF 5,000 TROY OUNCES",
                     },
-                    { id: 3, label: 'COPPER', comId: '085692', oldDate: '2006-06-13', newDate: 'Today' },
+                    {
+                        id: 3, label: 'COPPER 085692', comId: '085692', oldDate: '2006-06-13', newDate: endDate, name: "Commitment of Traders - COPPER- #1 (CMX) - Futures and Options (085692)",
+                        description: "Commitment of Traders - COPPER- #1 (CMX) - Futures and Options Contract Market Code: 085692 Units: CONTRACTS OF 25,000 POUNDS",
+                    },
                 ]
             )
         }
         if (val?.label === 'FINANCIALS') {
             setCommodityOptions(
                 [
-                    { id: 1, label: 'CAD', comId: '090741', oldDate: '2006-06-13', newDate: 'Today' },
-                    { id: 2, label: 'EURO FX', comId: '099741', oldDate: '2006-06-13', newDate: 'Today' },
-                    { id: 3, label: 'DIJA-10', comId: '124601', oldDate: '2006-06-13', newDate: '2014-12-16' }, //no data - 2006-06-13 to 2014-12-16
-                    { id: 3, label: 'DIJA-100', comId: '124606', oldDate: '2018-01-16', newDate: 'Today' },
-                    { id: 4, label: 'S&P 500', comId: '138741', oldDate: '2006-06-13', newDate: '2021-09-14' }, //no data - 2006-06-13 to 2021-09-14
-                    { id: 5, label: 'NASDAQ-100', comId: '209741', oldDate: '2006-06-13', newDate: '2015-06-16' }, //no data - 2006-06-13 to 2015-06-16
-                    { id: 6, label: 'USD INDEX', comId: '098662', oldDate: '2006-06-13', newDate: 'Today' },
-                    { id: 7, label: 'VIX FUTURES', comId: '1170E1', oldDate: '2006-08-29', newDate: 'Today' },
+                    {
+                        id: 1, label: 'CAD 090741', comId: '090741', oldDate: '2006-06-13', newDate: endDate, name: "Commitment of Traders - CANADIAN DOLLAR (CME) - Futures and Options (090741)",
+                        description: "Commitment of Traders - CANADIAN DOLLAR (CME) - Futures and Options Contract Market Code: 090741 Units: CONTRACTS OF CAD 100,000",
+                    },
+                    {
+                        id: 2, label: 'EURO FX 099741', comId: '099741', oldDate: '2006-06-13', newDate: endDate, name: "Commitment of Traders - EURO FX (CME) - Futures and Options (099741)",
+                        description: "Commitment of Traders - EURO FX (CME) - Futures and Options Contract Market Code: 099741 Units: CONTRACTS OF EUR 125,000",
+                    },
+                    {
+                        id: 3, label: 'DJIA $10 124601', comId: '124601', oldDate: '2006-06-13', newDate: '2014-12-16', name: "Commitment of Traders - DOW JONES INDUSTRIAL AVERAGE (CBT) - Futures and Options (124601)",
+                        description: "Commitment of Traders - DOW JONES INDUSTRIAL AVERAGE (CBT) - Futures and Options Contract Market Code:124601 Units:$10 X DJIA INDEX",
+                    }, //no data - 2006-06-13 to 2014-12-16
+                    {
+                        id: 3, label: 'DOW JONES REAL ESTATE $100 124606', comId: '124606', oldDate: '2018-01-16', newDate: endDate, name: "Commitment of Traders - DOW JONES U.S. REAL ESTATE IDX (CBT) - Futures and Options (124606)",
+                        description: "Commitment of Traders - DOW JONES U.S. REAL ESTATE IDX (CBT) - Futures and Options Contract Market Code: 124606 Units: $100 X DJ US REAL ESTATE INDEX",
+                    },
+                    {
+                        id: 4, label: 'S&P 500 138741', comId: '138741', oldDate: '2006-06-13', newDate: '2021-09-14', name: "Commitment of Traders - S&P 500 STOCK INDEX (CME) - Futures and Options (138741)",
+                        description: "Commitment of Traders - S&P 500 STOCK INDEX (CME) - Futures and Options Contract Market Code: 138741 Units: S&P 500 INDEX X $250.00",
+                    }, //no data - 2006-06-13 to 2021-09-14
+                    {
+                        id: 5, label: 'NASDAQ-100 209741', comId: '209741', oldDate: '2006-06-13', newDate: '2015-06-16', name: "Commitment of Traders - NASDAQ-100 STOCK INDEX (CME) - Futures and Options (209741)",
+                        description: "Commitment of Traders - NASDAQ-100 STOCK INDEX (CME) - Futures and Options Contract Market Code:209741 Units:NASDAQ 100 INDEX X $100",
+                    }, //no data - 2006-06-13 to 2015-06-16
+                    {
+                        id: 6, label: 'USD INDEX 098662', comId: '098662', oldDate: '2006-06-13', newDate: endDate, name: "Commitment of Traders - USD INDEX (ICUS) - Futures and Options (098662)",
+                        description: "Commitment of Traders - USD INDEX (ICUS) - Futures and Options Contract Market Code: 098662 Units: U.S. DOLLAR INDEX X $1000",
+                    },
+                    {
+                        id: 7, label: 'VIX FUTURES 1170E1', comId: '1170E1', oldDate: '2006-08-29', newDate: endDate, name: "Commitment of Traders - VIX FUTURES (E) - Futures and Options (1170E1)",
+                        description: "Commitment of Traders - VIX FUTURES (E) - Futures and Options Contract Market Code: 1170E1 Units: $1000 X INDEX",
+                    },
                 ]
             )
         }
@@ -212,7 +239,7 @@ function QueryForm() {
                         sx={{ width: 300 }}
                         renderInput={(params) => <TextField {...params} label="Commodity" />}
                         onChange={(e, value) => {
-                            // console.log(value)
+                            console.log(value)
                             setPositionsData();
                             setChangesData();
                             setPercentOIData();
@@ -255,6 +282,20 @@ function QueryForm() {
                         {
                             industryInput === 'METALS AND OTHERS' && (positionsData || changesData || percentOIData || numOfTradersData) ? (
                                 <>
+                                    <Paper style={{ margin: '20px' }}>
+                                        {/* <Typography variant='h5'>
+                                            {commodityInput?.name}
+                                        </Typography> */}
+                                        <Typography variant='h5'>
+                                            {commodityInput?.description}
+                                        </Typography>
+                                        <Typography variant='h6'>
+                                            Oldest Date: {commodityInput?.oldDate}
+                                        </Typography>
+                                        <Typography variant='h6'>
+                                            Newest Date: {commodityInput?.newDate}
+                                        </Typography>
+                                    </Paper>
                                     <MetalsTable metalName={commodityInput?.label} metalType={'Positions'} data={positionsData}
                                         errorState={positionsError} loading={positionsLoading} />
                                     <MetalsTable metalName={commodityInput?.label} metalType={'Changes'} data={changesData}
@@ -279,6 +320,20 @@ function QueryForm() {
                         {
                             industryInput === 'FINANCIALS' && (positionsData || changesData || percentOIData || numOfTradersData) ? (
                                 <>
+                                    <Paper style={{ margin: '20px' }}>
+                                        {/* <Typography variant='h5'>
+                                            {commodityInput?.name}
+                                        </Typography> */}
+                                        <Typography variant='h5'>
+                                            {commodityInput?.description}
+                                        </Typography>
+                                        <Typography variant='h6'>
+                                            Oldest Date: {commodityInput?.oldDate}
+                                        </Typography>
+                                        <Typography variant='h6'>
+                                            Newest Date: {commodityInput?.newDate}
+                                        </Typography>
+                                    </Paper>
                                     <FinancialsTable name={commodityInput?.label} type={'Positions'} data={positionsData}
                                         errorState={positionsError} loading={positionsLoading} />
                                     <FinancialsTable name={commodityInput?.label} type={'Changes'} data={changesData}
