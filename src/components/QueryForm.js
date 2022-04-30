@@ -207,6 +207,14 @@ function QueryForm() {
                         id: 7, label: 'VIX FUTURES 1170E1', comId: '1170E1', oldDate: '2006-08-29', newDate: endDate, name: "Commitment of Traders - VIX FUTURES (E) - Futures and Options (1170E1)",
                         description: "Commitment of Traders - VIX FUTURES (E) - Futures and Options Contract Market Code: 1170E1 Units: $1000 X INDEX",
                     },
+                    {
+                        id: 8, label: 'BRITITSH POUNDS 096742', comId: '096742', oldDate: '2006-06-13', newDate: endDate, name: "Commitment of Traders - BRITISH POUND (CME) - Futures and Options (096742)",
+                        description: "Commitment of Traders - BRITISH POUND (CME) - Futures and Options Contract Market Code: 096742 Units: CONTRACTS OF GBP 62,500",
+                    },
+                    {
+                        id: 9, label: 'RUSSELL E-MINI 239742', comId: '239742', oldDate: '2006-06-13', newDate: endDate, name: "Commitment of Traders - RUSSELL E-MINI (CME) - Futures and Options (239742)",
+                        description: "Commitment of Traders - RUSSELL E-MINI (CME) - Futures and Options Contract Market Code: 239742 Units: RUSSEL 2000 INDEX X $50",
+                    },
                 ]
             )
         }

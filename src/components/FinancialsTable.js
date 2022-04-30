@@ -16,7 +16,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 
 const financialsColumns = [
     "Date",
-    // "Open Interest",
+    "Open Interest",
     "Dealer Longs",
     "Dealer Shorts",
     "Dealer Differnece",
@@ -38,6 +38,13 @@ const financialsColumns = [
     // "Non Reportable Longs",
     // "Non Reportable Shorts"
 ]
+
+const posStyle = {
+    backgroundColor: '#6bc282'
+}
+const negStyle = {
+    backgroundColor: '#e04848'
+}
 
 function FinancialsTable(props) {
     const { name, type, columns, data, errorState, loading } = props;
@@ -73,22 +80,37 @@ function FinancialsTable(props) {
                                             <TableCell component="th" scope="row">
                                                 {row[0]}
                                             </TableCell>
-                                            {/* <TableCell align="right">{row[1]}</TableCell> */}
+                                            <TableCell align="right">{row[1]}</TableCell>
                                             <TableCell align="left">{row[2]?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</TableCell>
                                             <TableCell align="left">{row[3]?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</TableCell>
-                                            <TableCell align="left">{(Number(row[2] - row[3]).toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</TableCell>
-
+                                            {
+                                                row[2] - row[3] >= 0 ?
+                                                    <TableCell style={posStyle} align="left"><b>{(Number(row[2] - row[3])?.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</b></TableCell>
+                                                    : <TableCell style={negStyle} align="left"><b>{(Number(row[2] - row[3])?.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</b></TableCell>
+                                            }
                                             <TableCell align="left">{row[5]?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</TableCell>
                                             <TableCell align="left">{row[6]?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</TableCell>
-                                            <TableCell align="left">{(Number(row[5] - row[6])?.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</TableCell>
+                                            {
+                                                row[5] - row[6] >= 0 ?
+                                                    <TableCell style={posStyle} align="left"><b>{(Number(row[5] - row[6])?.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</b></TableCell>
+                                                    : <TableCell style={negStyle} align="left"><b>{(Number(row[5] - row[6])?.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</b></TableCell>
+                                            }
                                             {/* <TableCell align="right">{row[6]}</TableCell> */}
                                             <TableCell align="left">{row[8]?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</TableCell>
                                             <TableCell align="left">{row[9]?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</TableCell>
-                                            <TableCell align="left">{(Number(row[8] - row[9])?.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</TableCell>
+                                            {
+                                                row[8] - row[9] >= 0 ?
+                                                    <TableCell style={posStyle} align="left"><b>{(Number(row[8] - row[9])?.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</b></TableCell>
+                                                    : <TableCell style={negStyle} align="left"><b>{(Number(row[8] - row[9])?.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</b></TableCell>
+                                            }
                                             {/* <TableCell align="right">{row[9]}</TableCell> */}
                                             <TableCell align="left">{row[11]?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</TableCell>
                                             <TableCell align="left">{row[12]?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</TableCell>
-                                            <TableCell align="left">{(Number(row[11] - row[12])?.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</TableCell>
+                                            {
+                                                row[11] - row[12] >= 0 ?
+                                                    <TableCell style={posStyle} align="left"><b>{(Number(row[11] - row[12])?.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</b></TableCell>
+                                                    : <TableCell style={negStyle} align="left"><b>{(Number(row[11] - row[12])?.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</b></TableCell>
+                                            }
                                             {/* <TableCell align="right">{row[12]}</TableCell> */}
                                             {/* <TableCell align="right">{row[13]}</TableCell>
                                             <TableCell align="right">{row[14]}</TableCell>
