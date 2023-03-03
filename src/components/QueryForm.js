@@ -215,6 +215,10 @@ function QueryForm() {
                         id: 9, label: 'RUSSELL E-MINI 239742', comId: '239742', oldDate: '2006-06-13', newDate: endDate, name: "Commitment of Traders - RUSSELL E-MINI (CME) - Futures and Options (239742)",
                         description: "Commitment of Traders - RUSSELL E-MINI (CME) - Futures and Options Contract Market Code: 239742 Units: RUSSEL 2000 INDEX X $50",
                     },
+                    {
+                        id: 9, label: 'JAPANESE YEN (CME) 097741', comId: '097741', oldDate: '2006-06-13', newDate: endDate, name: "Commitment of Traders - JAPANESE YEN (CME) - Futures and Options (239742)",
+                        description: "Commitment of Traders - JAPANESE YEN (CME) - Futures and Options Contract Market Code: 097741 Units: CONTRACTS OF JPY 12,500,000",
+                    },
                 ]
             )
         }
