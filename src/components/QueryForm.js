@@ -84,64 +84,70 @@ function QueryForm() {
 
         setTimeout(function () {
             //your code to be executed after 1 second
+            setTimeout(function () {
+                // get changes data
+                axios.get(
+                    `https://data.nasdaq.com/api/v3/datasets/CFTC/${commodityInput.comId}_FO_ALL/data.json?start_date=${startDate}&end_date=${endDate}&api_key=ugss1x5yt18uP_VFGBce`
+                )
+                    .then(res => {
+                        setPositionsData(res.data.dataset_data.data)
+                        setPositionsLoading(false);
+                    })
+                    .catch(err => {
+                        setPositionsError(true);
+                        setPositionsLoading(false);
+                        console.log(err)
+                    });
+                    setTimeout(function () {
+                        // get changes data
+                        axios.get(
+                            `https://data.nasdaq.com/api/v3/datasets/CFTC/${commodityInput.comId}_FO_CHG/data.json?start_date=${startDate}&end_date=${endDate}&api_key=ugss1x5yt18uP_VFGBce`
+                        )
+                            .then(res => {
+                                setChangesData(res.data.dataset_data.data)
+                                setChangesLoading(false);
+                            })
+                            .catch(err => {
+                                setChangesError(true);
+                                setChangesLoading(false);
+                                console.log(err)
+                            });
+                            setTimeout(function () {
+                                // get percent of interest data
+                                axios.get(
+                                    `https://data.nasdaq.com/api/v3/datasets/CFTC/${commodityInput.comId}_FO_ALL_OI/data.json?start_date=${startDate}&end_date=${endDate}&api_key=ugss1x5yt18uP_VFGBce`
+                                )
+                                    .then(res => {
+                                        setPercentOIData(res.data.dataset_data.data)
+                                        setPoiLoading(false);
+                                    })
+                                    .catch(err => {
+                                        setPoiError(true);
+                                        setPoiLoading(false);
+                                        console.log(err)
+                                    });
+                                    setTimeout(function () {
+                                        // get number of traders data
+                                        axios.get(
+                                            `https://data.nasdaq.com/api/v3/datasets/CFTC/${commodityInput.comId}_FO_ALL_NT/data.json?start_date=${startDate}&end_date=${endDate}&api_key=ugss1x5yt18uP_VFGBce`
+                                        )
+                                            .then(res => {
+                                                setNumOfTradersData(res.data.dataset_data.data)
+                                                setNotLoading(false);
+                                            })
+                                            .catch(err => {
+                                                setNotError(true);
+                                                setNotLoading(false);
+                                                console.log(err)
+                                            });
+                                        setLoading(false)
+                                    }, 2000);
+                            }, 2000);
+                    }, 2000);
+            }, 2000);
 
 
-            // get changes data
-            axios.get(
-                `https://data.nasdaq.com/api/v3/datasets/CFTC/${commodityInput.comId}_FO_ALL/data.json?start_date=${startDate}&end_date=${endDate}&api_key=ugss1x5yt18uP_VFGBce`
-            )
-                .then(res => {
-                    setPositionsData(res.data.dataset_data.data)
-                    setPositionsLoading(false);
-                })
-                .catch(err => {
-                    setPositionsError(true);
-                    setPositionsLoading(false);
-                    console.log(err)
-                });
 
-            // get changes data
-            axios.get(
-                `https://data.nasdaq.com/api/v3/datasets/CFTC/${commodityInput.comId}_FO_CHG/data.json?start_date=${startDate}&end_date=${endDate}&api_key=ugss1x5yt18uP_VFGBce`
-            )
-                .then(res => {
-                    setChangesData(res.data.dataset_data.data)
-                    setChangesLoading(false);
-                })
-                .catch(err => {
-                    setChangesError(true);
-                    setChangesLoading(false);
-                    console.log(err)
-                });
-
-            // get percent of interest data
-            axios.get(
-                `https://data.nasdaq.com/api/v3/datasets/CFTC/${commodityInput.comId}_FO_ALL_OI/data.json?start_date=${startDate}&end_date=${endDate}&api_key=ugss1x5yt18uP_VFGBce`
-            )
-                .then(res => {
-                    setPercentOIData(res.data.dataset_data.data)
-                    setPoiLoading(false);
-                })
-                .catch(err => {
-                    setPoiError(true);
-                    setPoiLoading(false);
-                    console.log(err)
-                });
-
-            // get number of traders data
-            axios.get(
-                `https://data.nasdaq.com/api/v3/datasets/CFTC/${commodityInput.comId}_FO_ALL_NT/data.json?start_date=${startDate}&end_date=${endDate}&api_key=ugss1x5yt18uP_VFGBce`
-            )
-                .then(res => {
-                    setNumOfTradersData(res.data.dataset_data.data)
-                    setNotLoading(false);
-                })
-                .catch(err => {
-                    setNotError(true);
-                    setNotLoading(false);
-                    console.log(err)
-                });
-            setLoading(false)
         }, 2000);
 
 
