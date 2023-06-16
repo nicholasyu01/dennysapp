@@ -86,26 +86,66 @@ function QueryForm() {
             //your code to be executed after 1 second
                 // get changes data
                 axios.get(
-                    `https://data.nasdaq.com/api/v3/datasets/CFTC/${commodityInput.comId}_FO_ALL/data.json?start_date=${startDate}&end_date=${endDate}&api_key=ugss1x5yt18uP_VFGBce`
+                    `https://data.nasdaq.com/api/v3/datasets/CFTC/${commodityInput.comId}_FO_ALL/data.json?start_date=${startDate}&end_date=${endDate}&api_key=ugss1x5yt18uP_VFGBce`,
+                    {
+                        method: 'GET',
+                        mode: 'no-cors',
+                        headers: {
+                          'Access-Control-Allow-Origin': '*',
+                          'Content-Type': 'application/json',
+                        },
+                        withCredentials: true,
+                        credentials: 'same-origin',
+                      }
                 )
                     .then(res => {
                         setPositionsData(res.data.dataset_data.data)
                         setPositionsLoading(false);
                             axios.get(
-                                `https://data.nasdaq.com/api/v3/datasets/CFTC/${commodityInput.comId}_FO_CHG/data.json?start_date=${startDate}&end_date=${endDate}&api_key=ugss1x5yt18uP_VFGBce`
+                                `https://data.nasdaq.com/api/v3/datasets/CFTC/${commodityInput.comId}_FO_CHG/data.json?start_date=${startDate}&end_date=${endDate}&api_key=ugss1x5yt18uP_VFGBce`,
+                                {
+                                    method: 'GET',
+                                    mode: 'no-cors',
+                                    headers: {
+                                      'Access-Control-Allow-Origin': '*',
+                                      'Content-Type': 'application/json',
+                                    },
+                                    withCredentials: true,
+                                    credentials: 'same-origin',
+                                  }
                             )
                                 .then(res => {
                                     setChangesData(res.data.dataset_data.data)
                                     setChangesLoading(false);
                                         // get percent of interest data
                                         axios.get(
-                                            `https://data.nasdaq.com/api/v3/datasets/CFTC/${commodityInput.comId}_FO_ALL_OI/data.json?start_date=${startDate}&end_date=${endDate}&api_key=ugss1x5yt18uP_VFGBce`
+                                            `https://data.nasdaq.com/api/v3/datasets/CFTC/${commodityInput.comId}_FO_ALL_OI/data.json?start_date=${startDate}&end_date=${endDate}&api_key=ugss1x5yt18uP_VFGBce`,
+                                            {
+                                                method: 'GET',
+                                                mode: 'no-cors',
+                                                headers: {
+                                                  'Access-Control-Allow-Origin': '*',
+                                                  'Content-Type': 'application/json',
+                                                },
+                                                withCredentials: true,
+                                                credentials: 'same-origin',
+                                              }
                                         )
                                             .then(res => {
                                                 setPercentOIData(res.data.dataset_data.data)
                                                 setPoiLoading(false);
                                                     axios.get(
-                                                        `https://data.nasdaq.com/api/v3/datasets/CFTC/${commodityInput.comId}_FO_ALL_NT/data.json?start_date=${startDate}&end_date=${endDate}&api_key=ugss1x5yt18uP_VFGBce`
+                                                        `https://data.nasdaq.com/api/v3/datasets/CFTC/${commodityInput.comId}_FO_ALL_NT/data.json?start_date=${startDate}&end_date=${endDate}&api_key=ugss1x5yt18uP_VFGBce`,
+                                                        {
+                                                            method: 'GET',
+                                                            mode: 'no-cors',
+                                                            headers: {
+                                                              'Access-Control-Allow-Origin': '*',
+                                                              'Content-Type': 'application/json',
+                                                            },
+                                                            withCredentials: true,
+                                                            credentials: 'same-origin',
+                                                          }
                                                     )
                                                         .then(res => {
                                                             setNumOfTradersData(res.data.dataset_data.data)
