@@ -88,7 +88,7 @@ function QueryForm() {
 
             // get changes data
             axios.get(
-                `https://data.nasdaq.com/api/v3/datasets/CFTC/${commodityInput.comId}_FO_ALL/data.json?start_date=${startDate}&end_date=${endDate}&api_key=G7XE3KtbFRSk-jPHsBYi`
+                `https://data.nasdaq.com/api/v3/datasets/CFTC/${commodityInput.comId}_FO_ALL/data.json?start_date=${startDate}&end_date=${endDate}&api_key=ugss1x5yt18uP_VFGBce`
             )
                 .then(res => {
                     setPositionsData(res.data.dataset_data.data)
@@ -102,7 +102,7 @@ function QueryForm() {
 
             // get changes data
             axios.get(
-                `https://data.nasdaq.com/api/v3/datasets/CFTC/${commodityInput.comId}_FO_CHG/data.json?start_date=${startDate}&end_date=${endDate}&api_key=G7XE3KtbFRSk-jPHsBYi`
+                `https://data.nasdaq.com/api/v3/datasets/CFTC/${commodityInput.comId}_FO_CHG/data.json?start_date=${startDate}&end_date=${endDate}&api_key=ugss1x5yt18uP_VFGBce`
             )
                 .then(res => {
                     setChangesData(res.data.dataset_data.data)
@@ -116,7 +116,7 @@ function QueryForm() {
 
             // get percent of interest data
             axios.get(
-                `https://data.nasdaq.com/api/v3/datasets/CFTC/${commodityInput.comId}_FO_ALL_OI/data.json?start_date=${startDate}&end_date=${endDate}&api_key=G7XE3KtbFRSk-jPHsBYi`
+                `https://data.nasdaq.com/api/v3/datasets/CFTC/${commodityInput.comId}_FO_ALL_OI/data.json?start_date=${startDate}&end_date=${endDate}&api_key=ugss1x5yt18uP_VFGBce`
             )
                 .then(res => {
                     setPercentOIData(res.data.dataset_data.data)
@@ -130,7 +130,7 @@ function QueryForm() {
 
             // get number of traders data
             axios.get(
-                `https://data.nasdaq.com/api/v3/datasets/CFTC/${commodityInput.comId}_FO_ALL_NT/data.json?start_date=${startDate}&end_date=${endDate}&api_key=G7XE3KtbFRSk-jPHsBYi`
+                `https://data.nasdaq.com/api/v3/datasets/CFTC/${commodityInput.comId}_FO_ALL_NT/data.json?start_date=${startDate}&end_date=${endDate}&api_key=ugss1x5yt18uP_VFGBce`
             )
                 .then(res => {
                     setNumOfTradersData(res.data.dataset_data.data)
