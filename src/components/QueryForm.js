@@ -90,7 +90,7 @@ function QueryForm() {
                     {
                         method: 'GET',
                         headers: {
-                          'Access-Control-Allow-Origin': '*',
+                          'Access-Control-Allow-Origin': 'https://data.nasdaq.com',
                           'Content-Type': 'application/json',
                         },
                       }
