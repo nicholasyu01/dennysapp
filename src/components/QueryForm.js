@@ -89,13 +89,10 @@ function QueryForm() {
                     `https://data.nasdaq.com/api/v3/datasets/CFTC/${commodityInput.comId}_FO_ALL/data.json?start_date=${startDate}&end_date=${endDate}&api_key=ugss1x5yt18uP_VFGBce`,
                     {
                         method: 'GET',
-                        mode: 'no-cors',
                         headers: {
                           'Access-Control-Allow-Origin': '*',
                           'Content-Type': 'application/json',
                         },
-                        withCredentials: true,
-                        credentials: 'same-origin',
                       }
                 )
                     .then(res => {
@@ -105,13 +102,10 @@ function QueryForm() {
                                 `https://data.nasdaq.com/api/v3/datasets/CFTC/${commodityInput.comId}_FO_CHG/data.json?start_date=${startDate}&end_date=${endDate}&api_key=ugss1x5yt18uP_VFGBce`,
                                 {
                                     method: 'GET',
-                                    mode: 'no-cors',
                                     headers: {
                                       'Access-Control-Allow-Origin': '*',
                                       'Content-Type': 'application/json',
                                     },
-                                    withCredentials: true,
-                                    credentials: 'same-origin',
                                   }
                             )
                                 .then(res => {
@@ -122,13 +116,10 @@ function QueryForm() {
                                             `https://data.nasdaq.com/api/v3/datasets/CFTC/${commodityInput.comId}_FO_ALL_OI/data.json?start_date=${startDate}&end_date=${endDate}&api_key=ugss1x5yt18uP_VFGBce`,
                                             {
                                                 method: 'GET',
-                                                mode: 'no-cors',
                                                 headers: {
                                                   'Access-Control-Allow-Origin': '*',
                                                   'Content-Type': 'application/json',
                                                 },
-                                                withCredentials: true,
-                                                credentials: 'same-origin',
                                               }
                                         )
                                             .then(res => {
@@ -138,13 +129,10 @@ function QueryForm() {
                                                         `https://data.nasdaq.com/api/v3/datasets/CFTC/${commodityInput.comId}_FO_ALL_NT/data.json?start_date=${startDate}&end_date=${endDate}&api_key=ugss1x5yt18uP_VFGBce`,
                                                         {
                                                             method: 'GET',
-                                                            mode: 'no-cors',
                                                             headers: {
                                                               'Access-Control-Allow-Origin': '*',
                                                               'Content-Type': 'application/json',
                                                             },
-                                                            withCredentials: true,
-                                                            credentials: 'same-origin',
                                                           }
                                                     )
                                                         .then(res => {
